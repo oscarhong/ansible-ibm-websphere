@@ -6,26 +6,26 @@
   <server>
     <repository location='{{ __tmp_dir }}'/>
   </server>
-<profile id='IBM HTTP Server V8.5' installLocation='{{ __ihs_install_location }}'>
+<profile id='IBM HTTP Server V9.0' installLocation='{{ __ihs_install_location }}'>
   <data key='cic.selector.arch' value='x86'/>
   <data key='user.ihs.http.server.service.name' value='none'/>
   <data key='user.ihs.httpPort' value='80'/>
   <data key='user.ihs.installHttpService' value='false'/>
-  <data key='user.wasjava' value='java6'/>
-  <data key='user.internal.use.only.prev.wasjava' value='java6'/>
+  <data key='user.wasjava' value='java8'/>
+  <data key='user.internal.use.only.prev.wasjava' value='java8'/>
 </profile>
 <install>
-  <!-- IBM HTTP Server for WebSphere Application Server 8.5.5.11 -->
-  <offering profile='IBM HTTP Server V8.5' id='com.ibm.websphere.IHS.v85' version='{{ __this_version }}' features='arch.64bit,core.feature'/>
+  <!-- IBM HTTP Server for WebSphere Application Server 9.0.5.18 -->
+  <offering profile='IBM HTTP Server V9.0' id='com.ibm.websphere.IHS.v90' version='{{ __this_version }}' features='arch.64bit,core.feature'/>
 </install>
-<profile id='Web Server Plug-ins for IBM WebSphere Application Server V8.5' installLocation='{{ __plg_install_location }}'>
+<profile id='Web Server Plug-ins for IBM WebSphere Application Server V9.0' installLocation='{{ __plg_install_location }}'>
   <data key='cic.selector.arch' value='x86'/>
-  <data key='user.wasjava' value='java6'/>
-  <data key='user.internal.use.only.prev.wasjava' value='java6'/>
+  <data key='user.wasjava' value='java8'/>
+  <data key='user.internal.use.only.prev.wasjava' value='java8'/>
 </profile>
 <install>
-  <!-- Web Server Plug-ins for IBM WebSphere Application Server 8.5.5.11 -->
-  <offering profile='Web Server Plug-ins for IBM WebSphere Application Server V8.5' id='com.ibm.websphere.PLG.v85' version='{{ __this_version }}' features='com.ibm.jre.6_64bit,core.feature'/>
+  <!-- Web Server Plug-ins for IBM WebSphere Application Server 9.0.5.18 -->
+  <offering profile='Web Server Plug-ins for IBM WebSphere Application Server V9.0' id='com.ibm.websphere.PLG.v90' version='{{ __this_version }}' features='com.ibm.jre.8_64bit,core.feature'/>
 </install>
 <preference name='com.ibm.cic.common.core.preferences.eclipseCache' value='${sharedLocation}'/>
 <preference name='offering.service.repositories.areUsed' value='false'/>

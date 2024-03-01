@@ -12,19 +12,17 @@ __rsp_file:             "{{ __logs_dir }}/ihs_plg_wct_fixes.rsp"
 __log_file:             "{{ __logs_dir }}/ihs_fixes_install.{{ __now }}.log"
 __tpl_file:             "ihs_plg_wct_fixes.rsp.j2"
 
-__ihs_fp_version_latest: "8.5.5015.20190128_1828"
+__ihs_fp_version_latest: "9.0.5018.20231113_1345"
 __ihs_fp_files_latest:
-  - { file_name: 8.5.5-WS-WASSupplements-FP015-part1.zip, check_sum: a27e0d5acb4459dd64a511a96be75f5aa12571cae856ab5933768c70f516ab0a }
-  - { file_name: 8.5.5-WS-WASSupplements-FP015-part2.zip, check_sum: e1d2e4891b9e185a597b56ed00564ebe2dd8f380fdd9a0895f84da2386d29737 }
-  - { file_name: 8.5.5-WS-WASSupplements-FP015-part3.zip, check_sum: 972efc31c3c653413519a0d2cd47a0039efed4b3a7997af297839699b40d7c3d }
+  - { file_name: 9.0.5-WS-IHSPLG-FP018.zip, check_sum: b5ed934c1ffc1fa256b8d0977ac73d1d9dcfc3dbd4b280044747ea342d96f408 }
 
 __this_version:         "{{ ihs_version | default( __ihs_fp_version_latest ) }}"
 __this_files:           "{{ ihs_fp_files | default( __ihs_fp_files_latest ) }}"
-__version_check:        "Updated to com.ibm.websphere.IHS.v85_{{ __this_version }}"
-__product_id:           "\"id='com.ibm.websphere.IHS.v85' version='{{ __this_version }}'\""
+__version_check:        "Updated to com.ibm.websphere.IHS.v90{{ __this_version }}"
+__product_id:           "\"id='com.ibm.websphere.IHS.v90' version='{{ __this_version }}'\""
 
 __iim_product_id:       "\"id='com.ibm.cic.agent\""
-__ihs_product_id:       "\"id='com.ibm.websphere.IHS.v85'\""
+__ihs_product_id:       "\"id='com.ibm.websphere.IHS.v90'\""
 
 
 # Old Versions

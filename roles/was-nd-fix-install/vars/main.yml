@@ -9,19 +9,17 @@ __rsp_file:             "{{ __logs_dir }}/was_nd_fixes.rsp"
 __log_file:             "{{ __logs_dir }}/was_nd_fixes_install.{{ __now }}.log"
 __tpl_file:             "was_nd_fixes.rsp.j2"
 
-__was_fp_version_latest:  "8.5.5017.20200205_1450"
+__was_fp_version_latest:  "9.0.5018.20231113_1345"
 __was_fp_files_latest:
-  - { file_name: 8.5.5-WS-WAS-FP017-part1.zip, check_sum: f86e59f659c5a67fac52bfd514277f3e22b06122fec7b9efc74ff576a37aa4a1 }
-  - { file_name: 8.5.5-WS-WAS-FP017-part2.zip, check_sum: 9207f95e92a861a97b5a765e7da3bba9651a0f4b7ab9dab903152589ca15575b }
-  - { file_name: 8.5.5-WS-WAS-FP017-part3.zip, check_sum: ef7521feec369122cecee153fdb4c55299cb0adc76a66415d0f8959431eb6adb }
+  - { file_name: 9.0.5-WS-WAS-FP018.zip, check_sum: 83a6c682edc52e138d2bb1a5c87b2478c5b3d1a9141295a39daa5bce505889e3 }
 
 __this_version:         "{{ was_fp_version | default( __was_fp_version_latest ) }}"
 __this_files:           "{{ was_fp_files | default( __was_fp_files_latest ) }}"
-__version_check:        "Updated to com.ibm.websphere.ND.v85_{{ __this_version }}"
-__product_id:           "\"id='com.ibm.websphere.ND.v85' version='{{ __this_version }}'\""
+__version_check:        "Updated to com.ibm.websphere.ND.v90{{ __this_version }}"
+__product_id:           "\"id='com.ibm.websphere.ND.v90' version='{{ __this_version }}'\""
 
 __iim_product_id:       "\"id='com.ibm.cic.agent\""
-__was_product_id:       "\"id='com.ibm.websphere.ND.v85'\""
+__was_product_id:       "\"id='com.ibm.websphere.ND.v90'\""
 
 ## Old Versions
 __was_fp_version_fp17:  "8.5.5017.20200205_1450"

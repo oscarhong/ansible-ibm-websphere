@@ -3,7 +3,7 @@
   <server>
     <repository location='{{ __tmp_dir }}'/>
   </server>
-  <profile id='IBM WebSphere Application Server V8.5' installLocation='{{ __was_install_location }}'>
+  <profile id='IBM WebSphere Application Server V9.0' installLocation='{{ __was_install_location }}'>
     <data key='eclipseLocation' value='{{ __was_install_location }}'/>
     <data key='user.import.profile' value='false'/>
     <data key='cic.selector.os' value='linux'/>
@@ -12,7 +12,7 @@
     <data key='cic.selector.nl' value='en'/>
   </profile>
   <install modify='false'>
-    <offering id='com.ibm.websphere.ND.v85' profile='IBM WebSphere Application Server V8.5' features='core.feature,ejbdeploy,thinclient,embeddablecontainer,com.ibm.sdk.6_64bit' installFixes='none'/>
+    <offering id='com.ibm.websphere.ND.v90' profile='IBM WebSphere Application Server V9.0' features='core.feature,ejbdeploy,thinclient,embeddablecontainer,com.ibm.sdk.6_64bit' installFixes='none'/>
   </install>
   <preference name='com.ibm.cic.common.core.preferences.eclipseCache' value='{{ __imshared_location }}'/>
   <preference name='com.ibm.cic.common.core.preferences.connectTimeout' value='30'/>
