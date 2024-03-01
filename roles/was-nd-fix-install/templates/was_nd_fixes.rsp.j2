@@ -7,7 +7,7 @@
     <repository location='{{ __tmp_dir }}'/>
   </server>
   <profile id='IBM WebSphere Application Server V9.0' installLocation='{{ __was_install_location }}'>
-    <data key='cic.selector.arch' value='x86'/>
+    <data key='cic.selector.arch' value='x86_64'/>
   </profile>
   <install>
     <offering profile='IBM WebSphere Application Server V9.0' id='com.ibm.websphere.ND.v90' version='{{ __this_version }}' features='com.ibm.sdk.6_64bit,core.feature,ejbdeploy,embeddablecontainer,thinclient'/>
