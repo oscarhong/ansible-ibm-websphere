@@ -9,9 +9,9 @@ __rsp_file:             "{{ __logs_dir }}/was_java.rsp"
 __log_file:             "{{ __logs_dir }}/was_java_install.{{ __now }}.log"
 __tpl_file:             "was_java.rsp.j2"
 
-__version_latest:       "8.0.5017.20180726_2118"
+__version_latest:       "8.0.8020.20240116_0839"
 __files_latest:
-  - { file_name: 8.0.5.17-WS-IBMWASJAVA-Linux.zip, check_sum: e8dfc4e9e4e502f8c94a6169f5c54d437d7faa8faa8c5741e09deac6be874b5b }
+  - { file_name: ibm-java-sdk-8.0-8.20-linux-x64-installmgr.zip, check_sum: 351f266255ccbbf13293f7e35fe5fea01f2f9f4dd78e92310d97dc55fe15c4a4 }
 
 __version_802:          "8.0.2010.20160224_1829"
 __files_802:
