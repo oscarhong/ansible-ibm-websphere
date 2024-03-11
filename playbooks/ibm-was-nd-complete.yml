@@ -48,7 +48,7 @@
     - roles/installation-manager-install
     - roles/ibm-http-server-install
     - roles/ibm-http-server-fix-install
-    # - roles/ibm-http-config-plgwct
+    - roles/ibm-http-config-plgwct
     - roles/ibm-http-adminctl-restart
     - roles/ibm-http-server-restart
 
