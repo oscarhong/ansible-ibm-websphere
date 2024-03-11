@@ -8,9 +8,10 @@
   </server>
   <profile id='IBM WebSphere Application Server V9.0' installLocation='{{ __was_install_location }}'>
     <data key='cic.selector.arch' value='x86_64'/>
+    <data key='cic.selector.nl' value='zh_TW,zh_HK,en,zh'/>
   </profile>
   <install>
-    <offering profile='IBM WebSphere Application Server V9.0' id='com.ibm.websphere.ND.v90' version='{{ __this_version }}' features='com.ibm.sdk.8_64bit,core.feature,ejbdeploy,embeddablecontainer,thinclient'/>
+    <offering profile='IBM WebSphere Application Server V9.0' id='com.ibm.websphere.ND.v90' version='{{ __this_version }}' features='core.feature,ejbdeploy,embeddablecontainer,thinclient,samples'/>
   </install>
   <preference name='com.ibm.cic.common.core.preferences.eclipseCache' value='{{ __imshared_location }}'/>
   <preference name='offering.service.repositories.areUsed' value='false'/>
