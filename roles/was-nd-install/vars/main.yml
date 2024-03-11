@@ -16,8 +16,8 @@ __product_id:           "\"id='com.ibm.websphere.ND.v90'\""
 __version_check:        "Installed com.ibm.websphere.ND.v90_9.0.5001"
 __iim_product_id:       "\"id='com.ibm.cic.agent\""
 
-__version_latest:       "8.0.8020.20240116_0839"
+__java_version_latest:       "8.0.8020.20240116_0839"
 __java_files_latest:
   - { file_name: ibm-java-sdk-8.0-8.20-linux-x64-installmgr.zip, check_sum: 351f266255ccbbf13293f7e35fe5fea01f2f9f4dd78e92310d97dc55fe15c4a4 }
-__java_version:         "{{ java_version | default( __version_latest ) }}"
+__java_version:         "{{ java_version | default( __java_version_latest ) }}"
 __java_files:           "{{ java_files | default( __java_files_latest ) }}"
