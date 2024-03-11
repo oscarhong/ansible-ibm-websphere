@@ -38,7 +38,6 @@
   become:                  true
   roles:
     - roles/installation-manager-install
-    - roles/was-java-install
     - roles/was-nd-install
     - roles/was-nd-fix-install
 

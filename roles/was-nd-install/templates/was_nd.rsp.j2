@@ -1,34 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <agent-input acceptLicense='true'>
   <server>
-    <repository location='{{ __tmp_dir }}'/>
+    <repository location='{{ __was_tmp_dir }}'/>
+    <repository location='{{ __java_tmp_dir }}'/>
   </server>
   <profile id='IBM WebSphere Application Server V9.0' installLocation='{{ __was_install_location }}'>
-    <data key='eclipseLocation' value='{{ __was_install_location }}'/>
-    <data key='user.import.profile' value='false'/>
-    <data key='cic.selector.os' value='linux'/>
     <data key='cic.selector.arch' value='x86_64'/>
-    <data key='cic.selector.ws' value='gtk'/>
-    <data key='cic.selector.nl' value='en'/>
+    <data key='cic.selector.nl' value='zh_TW,zh_HK,en,zh'/>
   </profile>
   <install modify='false'>
-    <offering id='com.ibm.websphere.ND.v90' profile='IBM WebSphere Application Server V9.0' features='core.feature,ejbdeploy,thinclient,embeddablecontainer' installFixes='none'/>
+  <!-- IBM WebSphere Application Server Network Deployment -->
+    <offering id='com.ibm.websphere.ND.v90' profile='IBM WebSphere Application Server V9.0' features='core.feature,ejbdeploy,thinclient,embeddablecontainer,samples' installFixes='none'/>
+    <!-- IBM SDK, Java Technology Edition, Version 8 8.0.8.15 -->
+    <offering profile='IBM WebSphere Application Server V9.0' id='com.ibm.java.jdk.v8' version='{{ __java_version }}' features='com.ibm.sdk.8'/>
+
   </install>
   <preference name='com.ibm.cic.common.core.preferences.eclipseCache' value='{{ __imshared_location }}'/>
-  <preference name='com.ibm.cic.common.core.preferences.connectTimeout' value='30'/>
-  <preference name='com.ibm.cic.common.core.preferences.readTimeout' value='45'/>
-  <preference name='com.ibm.cic.common.core.preferences.downloadAutoRetryCount' value='0'/>
-  <preference name='offering.service.repositories.areUsed' value='false'/>
-  <preference name='com.ibm.cic.common.core.preferences.ssl.nonsecureMode' value='false'/>
-  <preference name='com.ibm.cic.common.core.preferences.http.disablePreemptiveAuthentication' value='false'/>
-  <preference name='http.ntlm.auth.kind' value='NTLM'/>
-  <preference name='http.ntlm.auth.enableIntegrated.win32' value='true'/>
-  <preference name='com.ibm.cic.common.core.preferences.preserveDownloadedArtifacts' value='true'/>
-  <preference name='com.ibm.cic.common.core.preferences.keepFetchedFiles' value='false'/>
-  <preference name='PassportAdvantageIsEnabled' value='false'/>
-  <preference name='com.ibm.cic.common.core.preferences.searchForUpdates' value='false'/>
-  <preference name='com.ibm.cic.agent.ui.displayInternalVersion' value='false'/>
-  <preference name='com.ibm.cic.common.sharedUI.showErrorLog' value='true'/>
-  <preference name='com.ibm.cic.common.sharedUI.showWarningLog' value='true'/>
-  <preference name='com.ibm.cic.common.sharedUI.showNoteLog' value='true'/>
 </agent-input>

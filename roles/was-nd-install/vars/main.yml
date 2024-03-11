@@ -1,5 +1,6 @@
 ---
-__tmp_dir:              "{{ tmp_dir | default('/opt/IBM/Binaries') }}/was"
+__was_tmp_dir:          "{{ tmp_dir | default('/opt/IBM/Binaries') }}/was"
+__java_tmp_dir:         "{{ tmp_dir | default('/opt/IBM/Binaries') }}/was_fixes"
 __logs_dir:             "{{ tmp_dir | default('/opt/IBM/Binaries') }}/logs"
 __iim_install_location: "{{ iim_install_location  | default('/opt/IBM/InstallationManager') }}"
 __was_install_location: "{{ was_install_location  | default('/opt/IBM/WebSphere/AppServer') }}"
@@ -10,7 +11,13 @@ __log_file:             "{{ __logs_dir }}/was_nd_install.{{ __now }}.log"
 __tpl_file:             "was_nd.rsp.j2"
 __was_files:
   - { file_name: was.repo.90501.nd.zip, check_sum: afd5c4f868ba0fd52f348aa292f67595b0552a0e54b31d4d8054ffb546841cf4 }
-__this_version:         "{{ was_version | default('9.0.5001.20190828_0616') }}"
+__was_version:         "{{ was_version | default('9.0.5001.20190828_0616') }}"
 __product_id:           "\"id='com.ibm.websphere.ND.v90'\""
 __version_check:        "Installed com.ibm.websphere.ND.v90_9.0.5001"
 __iim_product_id:       "\"id='com.ibm.cic.agent\""
+
+__version_latest:       "8.0.8020.20240116_0839"
+__java_files_latest:
+  - { file_name: ibm-java-sdk-8.0-8.20-linux-x64-installmgr.zip, check_sum: 351f266255ccbbf13293f7e35fe5fea01f2f9f4dd78e92310d97dc55fe15c4a4 }
+__java_version:         "{{ java_version | default( __version_latest ) }}"
+__java_files:           "{{ java_files | default( __java_files_latest ) }}"
