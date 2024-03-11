@@ -14,14 +14,14 @@
   </profile>
   <install>
     <!-- IBM HTTP Server for WebSphere Application Server 9.0.5.1 -->
-    <offering profile='IBM HTTP Server V9.0' id='com.ibm.websphere.IHS.v90' version='{{ __this_version }}' features='core.feature,arch.64bit'/>
+    <offering profile='IBM HTTP Server V9.0' id='com.ibm.websphere.IHS.v90' version='{{ __this_version }}' features='core.feature'/>
   </install>
   <profile id='Web Server Plug-ins for IBM WebSphere Application Server V9.0' installLocation='{{ __plg_install_location }}'>
     <data key='cic.selector.arch' value='x86_64'/>
   </profile>
   <install>
     <!-- Web Server Plug-ins for IBM WebSphere Application Server 9.0.5.1 -->
-    <offering profile='Web Server Plug-ins for IBM WebSphere Application Server V9.0' id='com.ibm.websphere.PLG.v90' version='{{ __this_version }}' features='core.feature,com.ibm.jre.6_64bit'/>
+    <offering profile='Web Server Plug-ins for IBM WebSphere Application Server V9.0' id='com.ibm.websphere.PLG.v90' version='{{ __this_version }}' features='core.feature'/>
   </install>
   <profile id='WebSphere Customization Toolbox V9.0' installLocation='{{ __wct_install_location }}'>
     <data key='cic.selector.arch' value='x86_64'/>
