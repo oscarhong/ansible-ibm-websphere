@@ -4,7 +4,15 @@
   ignore_errors: true
 
 - name:          Cleanup IHS Binaries directory
-  file:          path={{ __tmp_dir }} state=absent
+  file:          path={{ __ihs_dir }} state=absent
+  ignore_errors: true
+
+- name:          Cleanup WCT Binaries directory
+  file:          path={{ __wct_dir }} state=absent
+  ignore_errors: true
+
+- name:          Cleanup Plugins Binaries directory
+  file:          path={{ __plg_dir }} state=absent
   ignore_errors: true
 
 #-  debug:       var=version_already_installed
@@ -12,10 +20,16 @@
   file:          path={{ __java_tmp_dir }} state=directory mode=0755
 
 - name:          Create IHS Binaries directory
-  file:          path={{ __tmp_dir }} state=directory mode=0755
+  file:          path={{ __ihs_dir }} state=directory mode=0755
+
+- name:          Create WCT Binaries directory
+  file:          path={{ __wct_dir }} state=directory mode=0755
+
+- name:          Create Plugins Binaries directory
+  file:          path={{ __ihs_dir }} state=directory mode=0755
 
 - name:          Create Logs directory
-  file:          path={{ __logs_dir }} state=directory mode=0755
+  file:          path={{ __plg_dir }} state=directory mode=0755
   
 - name:          Download WAS Java
   get_url:
@@ -35,17 +49,47 @@
 - name:          Download IBM HTTP Server Files
   get_url:
     url:         "{{ __repository_url }}/{{ item.file_name }}"
-    dest:        "{{ __tmp_dir }}/{{ item.file_name }}"
+    dest:        "{{ __ihs_dir }}/{{ item.file_name }}"
     mode:        0755
     checksum:    sha256:{{ item.check_sum }}
-  with_items:    "{{ __this_files }}"
+  with_items:    "{{ __ihs_files }}"
 
 - name:          Extract IBM HTTP Server Files
   unarchive:
-    src:         "{{ __tmp_dir }}/{{ item.file_name }}"
-    dest:        "{{ __tmp_dir }}/"
+    src:         "{{ __ihs_dir }}/{{ item.file_name }}"
+    dest:        "{{ __ihs_dir }}/"
     copy:        no
-  with_items:    "{{ __this_files }}"
+  with_items:    "{{ __ihs_files }}"
+
+- name:          Download WCT Files
+  get_url:
+    url:         "{{ __repository_url }}/{{ item.file_name }}"
+    dest:        "{{ __wct_dir }}/{{ item.file_name }}"
+    mode:        0755
+    checksum:    sha256:{{ item.check_sum }}
+  with_items:    "{{ __wct_files }}"
+
+- name:          Extract WCT Files
+  unarchive:
+    src:         "{{ __wct_dir }}/{{ item.file_name }}"
+    dest:        "{{ __wct_dir }}/"
+    copy:        no
+  with_items:    "{{ __wct_files }}"
+
+- name:          Download Plugins Files
+  get_url:
+    url:         "{{ __repository_url }}/{{ item.file_name }}"
+    dest:        "{{ __plg_dir }}/{{ item.file_name }}"
+    mode:        0755
+    checksum:    sha256:{{ item.check_sum }}
+  with_items:    "{{ __plg_files }}"
+
+- name:          Extract Plugins Files
+  unarchive:
+    src:         "{{ __plg_dir }}/{{ item.file_name }}"
+    dest:        "{{ __plg_dir }}/"
+    copy:        no
+  with_items:    "{{ __plg_files }}"
 
 - name:          Generate Response file
   template:
@@ -54,7 +98,7 @@
 
 - name:          Install IBM HTTP Server Software
   command:
-    chdir={{ __tmp_dir }}
+    chdir={{ __ihs_dir }}
     {{ __iim_install_location }}/eclipse/tools/imcl -acceptLicense -sVP -log {{ __log_file }} input {{ __rsp_file }}
   register:      cout
   changed_when:  ( cout.stdout.find(__version_check) != -1)
@@ -66,4 +110,4 @@
 - name:          Cleanup IHS Binaries directory
   file:
     state:       absent
-    path:        "{{ __tmp_dir }}"
+    path:        "{{ __ihs_dir }}"

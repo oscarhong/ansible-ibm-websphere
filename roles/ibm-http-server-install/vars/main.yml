@@ -1,6 +1,8 @@
 ---
 __repository_url:       "{{ ihs_repository_url }}"
-__tmp_dir:              "{{ tmp_dir | default('/opt/IBM/Binaries') }}/wassup"
+__ihs_dir:              "{{ tmp_dir | default('/opt/IBM/Binaries') }}/was_ihs"
+__wct_dir:              "{{ tmp_dir | default('/opt/IBM/Binaries') }}/was_wct"
+__plg_dir:              "{{ tmp_dir | default('/opt/IBM/Binaries') }}/was_plg"
 __java_tmp_dir:         "{{ tmp_dir | default('/opt/IBM/Binaries') }}/was_fixes"
 __logs_dir:             "{{ tmp_dir | default('/opt/IBM/Binaries') }}/logs"
 __iim_install_location: "{{ iim_install_location  | default('/opt/IBM/InstallationManager') }}"
@@ -12,8 +14,12 @@ __now:                  "{{ lookup('pipe', 'date +%Y%m%d%H%M%S') }}"
 __rsp_file:             "{{ __logs_dir }}/ihs_plg_wct.rsp"
 __log_file:             "{{ __logs_dir }}/ihs_install.{{ __now }}.log"
 __tpl_file:             "ihs_plg_wct.rsp.j2"
-__this_files:
+__ihs_files:
   - { file_name: was.repo.90501.ihs.zip, check_sum: d02b7faf024f2e068d6597eea8d0f25bbee4e764be04419b9cd48c28c6157b4b }
+__wct_files:
+  - { file_name: was.repo.90501.wct.zip, check_sum: f753d776463e35fd0b6be92dc5b74778db024582361f8dd4db8c3c696a38624e }
+__plg_files:
+  - { file_name: was.repo.90501.plugins.zip, check_sum: f0e4655fc3a26d28251586c07960ae47afad3b0e911e4c68391dda8ea3005982 }
 __this_version:         "9.0.5001.20190828_0616"
 __product_id:           "\"id='com.ibm.websphere.IHS.v90'\""
 __version_check:        "Installed com.ibm.websphere.IHS.v90_9.0.5001"

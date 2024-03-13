@@ -4,6 +4,6 @@
   register:      iim_already_installed
 
 - name:          Is Product already Installed?
-  command:       "egrep {{ __product_id }} /var/ibm/InstallationManager/installed.xml"
+  command:       "egrep "id='com.ibm.websphere.IHS.v90'|com.ibm.websphere.WCT.v90|com.ibm.websphere.PLG.v90" /var/ibm/InstallationManager/installed.xml | grep offering | wc -l"
   register:      version_already_installed
   ignore_errors: true
