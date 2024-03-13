@@ -10,4 +10,4 @@
 
 - name:          Install IBM HTTP Server
   include_tasks: install_ihs.yml
-  when:          version_already_installed.stdout != 3
+  when:          version_already_installed.stdout != "3"
