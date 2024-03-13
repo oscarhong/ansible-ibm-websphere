@@ -2,6 +2,7 @@
 __repository_url:       "{{ ihs_fixes_repository_url }}"
 __ihs_dir:              "{{ tmp_dir | default('/opt/IBM/Binaries') }}/was_ihs"
 __wct_dir:              "{{ tmp_dir | default('/opt/IBM/Binaries') }}/was_wct"
+__java_tmp_dir:         "{{ tmp_dir | default('/opt/IBM/Binaries') }}/was_java"
 __logs_dir:             "{{ tmp_dir | default('/opt/IBM/Binaries') }}/logs"
 __iim_install_location: "{{ iim_install_location  | default('/opt/IBM/InstallationManager') }}"
 __ihs_install_location: "{{ ihs_install_location  | default('/opt/IBM/HTTPServer') }}"
@@ -17,11 +18,16 @@ __ihs_fp_version_latest: "9.0.5018.20231113_1345"
 __ihs_fp_files_latest:
   - { file_name: 9.0.5-WS-IHSPLG-FP018.zip, check_sum: b5ed934c1ffc1fa256b8d0977ac73d1d9dcfc3dbd4b280044747ea342d96f408 }
 
-__this_version:         "{{ ihs_version | default( __ihs_fp_version_latest ) }}"
+__ihs_version:         "{{ ihs_version | default( __ihs_fp_version_latest ) }}"
 __ihs_files:           "{{ ihs_fp_files | default( __ihs_fp_files_latest ) }}"
-__version_check:        "Updated to com.ibm.websphere.IHS.v90{{ __this_version }}"
-__product_id:           "\"id='com.ibm.websphere.IHS.v90' version='{{ __this_version }}'\""
+__version_check:        "Updated to com.ibm.websphere.IHS.v90{{ __ihs_version }}"
+__product_id:           "\"id='com.ibm.websphere.IHS.v90' version='{{ __ihs_version }}'\""
 
 __iim_product_id:       "\"id='com.ibm.cic.agent\""
 __ihs_product_id:       "\"id='com.ibm.websphere.IHS.v90'\""
 
+__java_version_latest:       "8.0.8020.20240116_0839"
+__java_files_latest:
+  - { file_name: ibm-java-sdk-8.0-8.20-linux-x64-installmgr.zip, check_sum: 351f266255ccbbf13293f7e35fe5fea01f2f9f4dd78e92310d97dc55fe15c4a4 }
+__java_version:         "{{ java_version | default( __java_version_latest ) }}"
+__java_files:           "{{ java_files | default( __java_files_latest ) }}"

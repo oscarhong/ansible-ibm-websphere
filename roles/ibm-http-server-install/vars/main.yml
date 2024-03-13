@@ -3,7 +3,7 @@ __repository_url:       "{{ ihs_repository_url }}"
 __ihs_dir:              "{{ tmp_dir | default('/opt/IBM/Binaries') }}/was_ihs"
 __wct_dir:              "{{ tmp_dir | default('/opt/IBM/Binaries') }}/was_wct"
 __plg_dir:              "{{ tmp_dir | default('/opt/IBM/Binaries') }}/was_plg"
-__java_tmp_dir:         "{{ tmp_dir | default('/opt/IBM/Binaries') }}/was_fixes"
+__java_tmp_dir:         "{{ tmp_dir | default('/opt/IBM/Binaries') }}/was_java"
 __logs_dir:             "{{ tmp_dir | default('/opt/IBM/Binaries') }}/logs"
 __iim_install_location: "{{ iim_install_location  | default('/opt/IBM/InstallationManager') }}"
 __ihs_install_location: "{{ ihs_install_location  | default('/opt/IBM/HTTPServer') }}"
@@ -20,7 +20,7 @@ __wct_files:
   - { file_name: was.repo.90501.wct.zip, check_sum: f753d776463e35fd0b6be92dc5b74778db024582361f8dd4db8c3c696a38624e }
 __plg_files:
   - { file_name: was.repo.90501.plugins.zip, check_sum: f0e4655fc3a26d28251586c07960ae47afad3b0e911e4c68391dda8ea3005982 }
-__this_version:         "9.0.5001.20190828_0616"
+__ihs_version:         "9.0.5001.20190828_0616"
 __product_id:           "\"id='com.ibm.websphere.IHS.v90'\""
 __version_check:        "Installed com.ibm.websphere.IHS.v90_9.0.5001"
 
