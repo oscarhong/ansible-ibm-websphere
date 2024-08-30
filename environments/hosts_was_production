@@ -3,33 +3,34 @@
 #
 # ansible-playbook -i environments/hosts_connections6_production -u <USERNAME> -k playbooks/ibm-was-nd-complete.yml
 [dmgr]
-srv000.company.com
+hktlsrwas01
 
 [was_servers]
-srv001.company.com servers="['server1']"
-srv002.company.com servers="['server2']"
-srv003.company.com servers="['server3']"
-srv004.company.com servers="['server4']"
+hktlsrwas01 servers="['server1']"
+hktlsrwas02 servers="['server2']"
 
 [ihs_servers]
-srv010.company.com
-srv011.company.com
+hktlsrwas01
+hktlsrwas02
 
 [all:vars]
-iim_repository_url=http://192.168.1.150/installation
-was_repository_url=http://192.168.1.150/was/8.5.5
-was_fixes_repository_url=http://192.168.1.150/was/8.5.5
-ihs_repository_url=http://192.168.1.150/was/8.5.5
-ihs_fixes_repository_url=http://192.168.1.150/was/8.5.5/FP15
+iim_repository_url=http://10.1.8.2/was/installation
+was_repository_url=http://10.1.8.2/was/9.0.5
+was_fixes_repository_url=http://10.1.8.2/was/9.0.5/FP18
+ihs_repository_url=http://10.1.8.2/was/9.0.5
+ihs_fixes_repository_url=http://10.1.8.2/was/9.0.5/FP18
 #
 was_username=wsadmin
-was_password=<CHANGE_PASSWORD>
+was_password=P@ssw0rd
 #
-dmgr_hostname=srv000.company.com
-was_domain_name=.company.com
-domain_name=.company.com
+dmgr_hostname=hktlsrwas01
+was_domain_name=.was.hktls.net
+domain_name=.was.hktls.net
 #
-ihs_password=<CHANGE_PASSWORD>
+ihs_password=P@ssw0rd
+
+iim_bin_file=agent.installer.linux.gtk.x86_64_1.9.2007.20240131_1836.zip
+iim_bin_file_sha256=76aec9f2797ee91ae9ce5ffe63765a20d15354925e6fad76d52f6516b9f9a987
 
 [dmgr:vars]
 #was_version="8.5.5012.20170627_1018"
@@ -38,13 +39,13 @@ ldap_server=ldapserver.company.com
 ldap_alias=ldapserver
 ldap_repo=LDAP_PRODUCTION
 ldap_bind_user=uid=ldapusr,ou=users,o=company
-ldap_bind_pass=<CHANGE_PASSWORD>
+ldap_bind_pass=IBMP@ssw0rd
 ldap_realm=ou=users,o=company
 
 [was_servers:vars]
 #was_version="8.5.5012.20170627_1018"
-profile_name=AppSrv01
+#profile_name=AppSrv01
 
 [ihs_servers:vars]
 ihs_username=ihsadmin
-ihs_password=<CHANGE_PASSWORD>
+ihs_password=P@ssw0rd
