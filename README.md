@@ -5,9 +5,8 @@ Ansible playbooks for IBM WebSphere Application Server, Connections 6 and others
 
 | Playbook name                 | Status         |           Description                                        |
 |-------------------------------|----------------|--------------------------------------------------------------|
-| ibm-was-nd-complete.yml       | Complete       | Install IBM HTTP Server - 8.5.5.15  |
-| ibm-http-server-complete.yml  | Complete       | Install IBM WebSphere Application Server - Network Deployment - 8.5.5.15  |
-| ibm-connections6.yml          | Complete       | Install IBM Connections 6.0 CR5 |
+| ibm-was-nd-complete.yml       | Complete       | Install IBM HTTP Server - 9.0.5.18  |
+| ibm-http-server-complete.yml  | Complete       | Install IBM WebSphere Application Server - Network Deployment - 9.0.5.18  |
 
 # Roles
 
@@ -40,7 +39,7 @@ Ansible playbooks for IBM WebSphere Application Server, Connections 6 and others
 | was-dmgr-stop                   | Stop Deployment Manager |
 | was-java-install                | Install IBM Java for WAS  |
 | was-nd-fix-install              | Install IBM WAS ND Fixes  |
-| was-nd-install                  | Install IBM WebSphere Application Server - Network Deployment - 8.5.5  |
+| was-nd-install                  | Install IBM WebSphere Application Server - Network Deployment - 9.0.5  |
 | was-nodeagent-start             | Start Node Agent |
 | was-nodeagent-stop              | Stop Node Agent |
 | was-profile-cleanup-logs        | Delete and truncate log files for Application Servers|
@@ -58,48 +57,28 @@ Ansible playbooks for IBM WebSphere Application Server, Connections 6 and others
 
 1) Download installation files:
 
-* IBM Installation Manager 1.8.9.1 (agent.installer.linux.gtk.x86_64_1.8.9001.20180709_1302.zip)
-* IBM WebSphere Application Server 8.5.5
-* IBM WebSphere Application Server 8.5.5 Fix Pack 15
+* IBM Installation Manager 1.9.2.7 (agent.installer.linux.gtk.x86_64_1.9.2007.20240131_1836.zip)
+* IBM WebSphere Application Server 9.0.5
+* IBM WebSphere Application Server 9.0.5 Fix Pack 18
+* IBM Java software development kits (SDKs) 
 
 2) Copy files to Web Server
 
 Example of my repository
 ```
--- installation
-    |-- agent.installer.linux.gtk.x86_64_1.8.9001.20180709_1302.zip
 -- was
-    |-- 8.5.5
-    |   |-- WAS_ND_V8.5.5_1_OF_3.zip
-    |   |-- WAS_ND_V8.5.5_2_OF_3.zip
-    |   |-- WAS_ND_V8.5.5_3_OF_3.zip
-    |   |-- WAS_V8.5.5_SUPPL_1_OF_3.zip
-    |   |-- WAS_V8.5.5_SUPPL_2_OF_3.zip
-    |   |-- WAS_V8.5.5_SUPPL_3_OF_3.zip
-    |   |-- FP15
-    |   |   |-- 8.5.5-WS-WAS-FP014-part1.zip
-    |   |   |-- 8.5.5-WS-WAS-FP014-part2.zip
-    |   |   |-- 8.5.5-WS-WAS-FP014-part3.zip
-    |   |   |-- 8.5.5-WS-WASSupplements-FP014-part1.zip
-    |   |   |-- 8.5.5-WS-WASSupplements-FP014-part2.zip
-    |   |   `-- 8.5.5-WS-WASSupplements-FP014-part3.zip
--- connections
-    |-- 6.0
-    |   |-- 5.2.1-P8CPE-CLIENT-LINUX.BIN
-    |   |-- 5.2.1-P8CPE-LINUX.BIN
-    |   |-- 5.2.1.7-P8CPE-CLIENT-LINUX-FP007.BIN
-    |   |-- 5.2.1.7-P8CPE-LINUX-FP007.BIN
-    |   |-- 6.0.0.0-IC-Multi-CR4-LO94111.zip
-    |   |-- CNCTNS_V6.0_IFR1WLNX,_AIX_ML.tar
-    |   |-- CNCTNS_V6.0_IFR1_LNX_ML.tar
-    |   |-- CR5
-    |   |   |-- 6.0.0.0-IC-Multi-CR5-LO94188.zip
-    |   |   |-- IC60_CR5_LO94194.jar
-    |   |   `-- TinyEditorsForIC6_4.0.0.29.zip
-    |   |-- IBM_CONTENT_NAVIGATOR-2.0.3-LINUX.bin
-    |   |-- IBM_CONTENT_NAVIGATOR-2.0.3.8-FP008-LINUX.bin
-    |   |-- IC-ComponentPack-6.0.0.7.zip
-    |   `-- IC-CustomizerLite-1.0.zip
+    |-- installation
+    |   |-- agent.installer.linux.gtk.x86_64_1.9.2007.20240131_1836.zip
+    |-- 9.0.5
+    |   |-- was.repo.90501.nd.zip
+    |   |-- was.repo.90501.ihs.zip
+    |   |-- was.repo.90501.wct.zip
+    |   |-- was.repo.90501.plugins.zip
+    |   |-- ibm-java-sdk-8.0-8.20-linux-x64-installmgr.zip
+    |   |-- FP18
+    |   |   |-- 9.0.5-WS-WAS-FP018.zip
+    |   |   |-- 9.0.5-WS-IHSPLG-FP018.zip
+    |   |   `-- 9.0.5-WS-WCT-FP018.zip 
 ```
 ## Configure Ansible hosts file
 
@@ -111,7 +90,7 @@ Change you ansible host file like **hosts.example**
 ```
 cd /etc/ansible
 
-git clone https://github.com/ebasso/ansible-ibm-websphere.git
+git clone https://github.com/oscarhong/ansible-ibm-websphere.git
 ```
 
 ## Running playbooks
@@ -140,7 +119,7 @@ ansible-playbooks -i environments/hosts.development -u <username> -k playbooks/i
 1) If you are using a different Fix Pack than FP 15, you must change generate sha256 hashes.
 
 ```
-Example: sha256sum  8.5.5-WS-WAS-FP09-part1.zip
+Example: sha256sum  9.0.5-WS-WAS-FP018.zip
 ```
 and set variables:
 
@@ -152,12 +131,13 @@ was1.company.com
 
 [was_servers:vars]
 ...
-was_version="8.5.5009.20160225_0435"
+was_version="9.0.5001.20190828_0616"
 ```
 
 # Authors
 
 * **Enio Basso** - *Initial work* - [My Repository](https://github.com/ebasso)
+* **Oscar Hong** - *Adoption to WAS 9.0.5* - [My Repository](https://github.com/oscarhong)
 
 
 See also the list of [contributors](https://github.com/ebasso/ansible-ibm-websphere/graphs/contributors) who participated in this project.

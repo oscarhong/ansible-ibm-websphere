@@ -3,7 +3,7 @@
 # Variables used in this playbook that can be setup at hosts file.
 #
 # HTTP server that has installation Files
-#   was_repository_url:    http://192.168.1.1/was/8.5.5
+#   was_repository_url:    http://192.168.1.1/was/9.0.5
 #
 # How to Run
 #
@@ -17,20 +17,17 @@
   #was_install_location: "/opt/IBM/WebSphere/AppServer"
   #imshared_location:    "/opt/IBM/IMShared"
 
-  #was_version:          "8.5.5000.20130514_1044"
+  #was_version:          "9.0.5001.20190828_0616"
   #was_files:
-  #  - { file_name: WAS_ND_V9.0.5_1_OF_3.zip, check_sum: b1333962ba4b25c8632c7e4c82b472350337e99febac8f70ffbd551ca3905e83 }
-  #  - { file_name: WAS_ND_V9.0.5_2_OF_3.zip, check_sum: 440b7ed82089d43b1d45c1e908bf0a1951fed98f2542b6d37c8b5e7274c6b1c9 }
-  #  - { file_name: WAS_ND_V9.0.5_3_OF_3.zip, check_sum: b73ae070656bed6399a113c2db9fb0abaf5505b0d41c564bf2a58ce0b1e0dcd2 }
+  #  - { file_name: was.repo.90501.nd.zip, check_sum: afd5c4f868ba0fd52f348aa292f67595b0552a0e54b31d4d8054ffb546841cf4 }
 
-  #was_fp_version:       "8.5.5011.20161206_1434"
+  #was_fp_version:       "9.0.5018.20231113_1345"
   #was_fp_files:
-  #  - { file_name: 8.5.5-WS-WAS-FP011-part1.zip, check_sum: bd9b51bd6a8522da8a6a19fcb0cf0ccc9980b13f5da2a1bcd4db2242ae555a66 }
-  #  - { file_name: 8.5.5-WS-WAS-FP011-part2.zip, check_sum: 0ab936b38ebee485471ce9f6fdbf5c0a609f0ffa837247fb81db6935f5cc061c }
+  #  - { file_name: 9.0.5-WS-WAS-FP018.zip, check_sum: 83a6c682edc52e138d2bb1a5c87b2478c5b3d1a9141295a39daa5bce505889e3 }
 
   #was_java_version:     "8.0.2010.20160224_1829"
   #was_java_files:
-  #  - { file_name: 8.0.2.10-WS-IBMWASJAVA-Linux.zip, check_sum: 7338d90d760596d95eb9622aa6a5ceb21c5604cece702abeeb8565c331f2aaa1 }
+  #  - { file_name: ibm-java-sdk-8.0-8.20-linux-x64-installmgr.zip, check_sum: 351f266255ccbbf13293f7e35fe5fea01f2f9f4dd78e92310d97dc55fe15c4a4 }
 ---
 - name:                    Install WebSphere Application Server - Network Deployment
   hosts:                   dmgr,was_servers

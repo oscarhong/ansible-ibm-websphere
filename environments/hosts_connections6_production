@@ -31,10 +31,10 @@ srv004.company.com
 
 [all:vars]
 iim_repository_url=http://192.168.1.150/installation
-was_repository_url=http://192.168.1.150/was/8.5.5
-was_fixes_repository_url=http://192.168.1.150/was/8.5.5/FP15
-ihs_repository_url=http://192.168.1.150/was/8.5.5
-ihs_fixes_repository_url=http://192.168.1.150/was/8.5.5/FP15
+was_repository_url=http://192.168.1.150/was/9.0.5
+was_fixes_repository_url=http://192.168.1.150/was/9.0.5/FP15
+ihs_repository_url=http://192.168.1.150/was/9.0.5
+ihs_fixes_repository_url=http://192.168.1.150/was/9.0.5/FP15
 jdbc_repository_url=http://192.168.1.150/db2/jdbc/V11.1/
 cnx_repository_url=http://192.168.1.150/connections/6.0
 cnx_fixes_repository_url=https://192.168.1.150/connections/6.0/CR5

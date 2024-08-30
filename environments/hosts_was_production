@@ -17,10 +17,10 @@ srv011.company.com
 
 [all:vars]
 iim_repository_url=http://192.168.1.150/installation
-was_repository_url=http://192.168.1.150/was/8.5.5
-was_fixes_repository_url=http://192.168.1.150/was/8.5.5
-ihs_repository_url=http://192.168.1.150/was/8.5.5
-ihs_fixes_repository_url=http://192.168.1.150/was/8.5.5/FP15
+was_repository_url=http://192.168.1.150/was/9.0.5
+was_fixes_repository_url=http://192.168.1.150/was/9.0.5
+ihs_repository_url=http://192.168.1.150/was/9.0.5
+ihs_fixes_repository_url=http://192.168.1.150/was/9.0.5/FP15
 #
 was_username=wsadmin
 was_password=<CHANGE_PASSWORD>
@@ -32,7 +32,7 @@ domain_name=.company.com
 ihs_password=<CHANGE_PASSWORD>
 
 [dmgr:vars]
-#was_version="8.5.5012.20170627_1018"
+#was_version="9.0.5001.20190828_0616"
 #profile_name=Dmgr01
 ldap_server=ldapserver.company.com
 ldap_alias=ldapserver
@@ -42,7 +42,7 @@ ldap_bind_pass=<CHANGE_PASSWORD>
 ldap_realm=ou=users,o=company
 
 [was_servers:vars]
-#was_version="8.5.5012.20170627_1018"
+#was_version="9.0.5001.20190828_0616"
 profile_name=AppSrv01
 
 [ihs_servers:vars]
